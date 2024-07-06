@@ -12,7 +12,7 @@
     <div class="background"></div>
     <div class="login-container">
         <center>Inicio de Sesión</center>
-        <form method="post" action="loginServlet">
+        <form method="post" action="FunctLogin.jsp">
             <div class="form__group">
                 <input type="text" class="form__field" placeholder="Usuario" name="usuario" id="usuario" required />
                 <label for="usuario" class="form__label">Usuario</label>
