@@ -16,7 +16,7 @@
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection(URL, usuario, contrasena);
             
-            String sql = "SELECT * FROM autenticacion WHERE login = ? AND contraseña = ?;";
+            String sql = "SELECT * FROM autenticacion WHERE usuario = ? AND contraseña = ?;";
             Sentencia = Conexion.prepareStatement(sql);
             Sentencia.setString(1,Nombre);
             Sentencia.setString(2,Contrasena);
