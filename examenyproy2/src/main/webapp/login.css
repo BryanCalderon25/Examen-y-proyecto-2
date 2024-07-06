@@ -107,3 +107,9 @@ body {
 .form__button:hover {
     background-color: #28d654; /* Color de fondo al pasar el mouse */
 }
+.error-message {
+    color: rgb(201, 53, 53);
+    text-align: center;
+    font-size: 15px;
+    margin-top: 20px;
+}

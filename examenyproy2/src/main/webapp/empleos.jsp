@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="Mostrar.jsp" %> 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,31 +20,7 @@
         </div>
         <div id="jobList">
             <!-- Aquí se mostrarán los empleos -->
-            <div class="job-item">
-                <h3>Empresa A</h3>
-                <p><strong>Salario:</strong> 50000</p>
-                <p><strong>Experiencia:</strong> 2 años</p>
-                <p><strong>Jornada:</strong> Completa</p>
-                <p><strong>Puesto:</strong> Desarrollador</p>
-                <p><strong>Horario:</strong> 9am - 5pm</p>
-                <div class="job-buttons">
-                    <button class="update">Actualizar</button>
-                    <button class="delete">Eliminar</button>
-                </div>
-            </div>
-            <div class="job-item">
-                <h3>Empresa B</h3>
-                <p><strong>Salario:</strong> 60000</p>
-                <p><strong>Experiencia:</strong> 3 años</p>
-                <p><strong>Jornada:</strong> Medio tiempo</p>
-                <p><strong>Puesto:</strong> Analista</p>
-                <p><strong>Horario:</strong> 10am - 2pm</p>
-                <div class="job-buttons">
-                    <button class="update">Actualizar</button>
-                    <button class="delete">Eliminar</button>
-                </div>
-            </div>
-            <!-- Agregar más empleos según sea necesario -->
+            <% consultaEmpleos(request, response); %>
         </div>
         <div class="buttons">
             <button class="back" onclick="goBack()">Atrás</button>

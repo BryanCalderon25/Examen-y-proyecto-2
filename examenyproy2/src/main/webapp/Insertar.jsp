@@ -1,8 +1,12 @@
 <%@ page language= "java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*, java.sql.*, java.servlet.*, javax.servlet.*, java.servlet.http.*" %>
 <% 
-    String Nombre = request.getParameter("usuario");
-    String Contrasena = request.getParameter("contraseña");
+    String Empresa = request.getParameter("empresa");
+    String Salario = request.getParameter("salario");
+    String Experiencia = request.getParameter("experiencia");
+    String Jornada = request.getParameter("jornada");
+    String Puesto = request.getParameter("puesto");
+    String Horario = request.getParameter("horario");
 
     String URL = "jdbc:mysql://localhost:3306/base_proyecto"; 
     String usuario = "root"; 
@@ -17,15 +21,21 @@
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection(URL, usuario, contrasena);
             
-            String sql = "SELECT * FROM autenticacion WHERE usuario = ? AND contraseña = ?;";
+            String sql = "INSERT INTO empleos(empresa,salario,experiencia,jornada,puesto,horario) VALUES (?,?,?,?,?,?);";
             Sentencia = Conexion.prepareStatement(sql);
-            Sentencia.setString(1,Nombre);
-            Sentencia.setString(2,Contrasena);
-            resultado = Sentencia.executeQuery();
-            if (resultado.next()){
-                response.sendRedirect("menu.jsp");
-            }else{
-                error = "Por favor verifique su usuario y contraseña!";
+            Sentencia.setString(1,Empresa);
+            Sentencia.setString(2,Salario);
+            Sentencia.setString(3,Experiencia);
+            Sentencia.setString(4,Jornada);
+            Sentencia.setString(5,Puesto);
+            Sentencia.setString(6,Horario);
+            int filasInsertadas = Sentencia.executeUpdate();
+
+            // Si se insertó al menos una fila, redirigir a Mostrar.jsp
+            if (filasInsertadas > 0) {
+                response.sendRedirect("empleos.jsp");
+            } else {
+                error = "Ingreso fallido!";
             }
         } catch (SQLException e) {
             e.printStackTrace();

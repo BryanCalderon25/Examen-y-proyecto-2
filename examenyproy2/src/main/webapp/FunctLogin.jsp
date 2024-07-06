@@ -1,4 +1,4 @@
-<"%@ page language= "java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language= "java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*, java.sql.*, java.servlet.*, javax.servlet.*, java.servlet.http.*" %>
 <% 
     String Nombre = request.getParameter("usuario");
@@ -11,6 +11,7 @@
     Connection Conexion = null;
     PreparedStatement Sentencia = null;
     ResultSet resultado = null; 
+    String error = null;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -24,7 +25,7 @@
             if (resultado.next()){
                 response.sendRedirect("menu.jsp");
             }else{
-                out.println("<p style='color:orange;'>Usuario o contraseña incorrectos</p>");
+                error = "Por favor verifique su usuario y contraseña!";
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,5 +51,10 @@
                     e.printStackTrace();
                 }
             }
+        }
+        // Pasar el mensaje de error a la página de inicio de sesión
+        if (error != null) {
+            request.setAttribute("error", error);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 %>

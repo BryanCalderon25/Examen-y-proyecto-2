@@ -43,11 +43,6 @@
     </div>
 
     <script>
-       
-                // Aquí puedes agregar la lógica para manejar los datos, por ejemplo, enviarlos a un servidor.
-            
-        
-
         function goBack() {
             window.location.href = 'menu.jsp'; // Lógica para manejar el botón de atrás
         }

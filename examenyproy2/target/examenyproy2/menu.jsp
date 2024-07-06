@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +10,8 @@
 <body>
     <div class="background"></div>
     <div class="menu-container">
-        <h1>Menú Principal</h1>
+        <h1>Bienvenido al sistema de empleos de Costa Rica !</h1>
+        <h2>Menú Principal</h2>
         <div id="empleador" class="menu-item">
             <img src="https://cdn-icons-png.flaticon.com/128/7567/7567987.png" alt="Empleador">
             <span>Empleador</span>

@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="dbconfig.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +11,7 @@
     <div class="background"></div>
     <div class="login-container">
         <center>Inicio de Sesión</center>
-        <form method="post" action="FunctLogin.jsp">
+        <form method="post" ACTION="FunctLogin.jsp">
             <div class="form__group">
                 <input type="text" class="form__field" placeholder="Usuario" name="usuario" id="usuario" required />
                 <label for="usuario" class="form__label">Usuario</label>
@@ -23,9 +22,10 @@
             </div>
             <button type="submit" class="form__button">Iniciar Sesión</button>
         </form>
-
-        
-    </div> 
-    
+    <% if (request.getAttribute("error") != null) { %>
+        <div class="error-message">
+            <%= request.getAttribute("error") %>
+        </div>
+    <% } %>
 </body>
 </html>
