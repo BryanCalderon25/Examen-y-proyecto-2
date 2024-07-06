@@ -17,14 +17,14 @@
             Conexion = DriverManager.getConnection(URL, usuario, contrasena);
             
             String sql = "SELECT * FROM autenticacion WHERE login = ? AND contraseña = ?;";
-            Sentencia = Conexion.preparedStatement(sql);
+            Sentencia = Conexion.prepareStatement(sql);
             Sentencia.setString(1,Nombre);
             Sentencia.setString(2,Contrasena);
-            resultado = sentencia.executeQuery();
+            resultado = Sentencia.executeQuery();
             if (resultado.next()){
                 response.sendRedirect("menu.jsp");
             }else{
-                out.println(null;"<p style='color:orange;'>Usuario o contraseña incorrectos</p>");
+                out.println("<p style='color:orange;'>Usuario o contraseña incorrectos</p>");
             }
         } catch (SQLException e) {
             e.printStackTrace();
