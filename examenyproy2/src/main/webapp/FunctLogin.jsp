@@ -33,3 +33,4 @@
             if (sentencia != null) try {resultado.close();} catch (SQLException) {e.printStackTrace();}
             if (Conexion != null) try {resultado.close();} catch (SQLException) {e.printStackTrace();}
         }
+%>
