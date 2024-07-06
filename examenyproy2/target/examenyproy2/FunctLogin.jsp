@@ -29,8 +29,26 @@
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (resultado != null) try {resultado.close();} catch (SQLException e) {e.printStackTrace();}
-            if (Sentencia != null) try {resultado.close();} catch (SQLException e) {e.printStackTrace();}
-            if (Conexion != null) try {resultado.close();} catch (SQLException e) {e.printStackTrace();}
+            if (resultado != null) {
+                try {
+                    resultado.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (Sentencia != null) {
+                try {
+                    Sentencia.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (Conexion != null) {
+                try {
+                    Conexion.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 %>
